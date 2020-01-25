@@ -21,6 +21,9 @@ repositories {
     mavenCentral()
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencies {
     compile 'de.topobyte:jgs:0.0.1'
     compile 'org.locationtech.jts:jts-core:1.16.1'
