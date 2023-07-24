@@ -24,6 +24,7 @@ import java.awt.geom.Path2D;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.LineString;
+import org.locationtech.jts.geom.LinearRing;
 import org.locationtech.jts.geom.MultiPolygon;
 import org.locationtech.jts.geom.Polygon;
 
@@ -92,11 +93,11 @@ public class Jts2Awt
 			return new Area();
 		}
 
-		LineString ring = p.getExteriorRing();
+		LinearRing ring = p.getExteriorRing();
 		Area outer = getArea(ring, ct);
 
 		for (int i = 0; i < p.getNumInteriorRing(); i++) {
-			LineString interior = p.getInteriorRingN(i);
+			LinearRing interior = p.getInteriorRingN(i);
 			Area inner = getArea(interior, ct);
 			outer.subtract(inner);
 		}
